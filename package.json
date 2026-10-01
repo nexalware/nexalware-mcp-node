@@ -1,6 +1,6 @@
 {
   "name": "@nexalware/mcp",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Nexalware as an MCP server lets any MCP-aware agent host (Claude Desktop, Claude Code, Cursor, etc.) discover and call your device control tools automatically.",
   "keywords": [
     "nexalware",
