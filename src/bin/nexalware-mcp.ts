@@ -23,16 +23,11 @@ const server = new McpServer({
   version: "0.1.0",
 });
 
-// One MCP tool per entry in the SDK's shared tool manifest, this file is
-// deliberately thin: the manifest (name, description, schema, handler) is
-// the single source of truth, this is just the adapter that speaks MCP.
 for (const t of tools) {
   server.registerTool(
     t.name,
     { description: t.description, inputSchema: t.inputSchema },
-    // Heterogeneous loop over tools with differing input shapes, each
-    // handler's own zod schema (already enforced by registerTool itself)
-    // is the real type safety here, not this callback's static type.
+
     async (args: Record<string, unknown>) => {
       try {
         const result = await t.handler(args as never, client);
