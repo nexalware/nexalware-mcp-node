@@ -1,0 +1,52 @@
+{
+  "name": "@nexalware/mcp",
+  "version": "0.1.4",
+  "description": "Nexalware as an MCP server lets any MCP-aware agent host (Claude Desktop, Claude Code, Cursor, etc.) discover and call your device control tools automatically.",
+  "keywords": [
+    "nexalware",
+    "mcp",
+    "model-context-protocol",
+    "iot",
+    "device-control",
+    "robotics",
+    "claude"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/nexalware/nexalware-mcp-node#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nexalware/nexalware-mcp-node.git",
+    "directory": "mcp-server"
+  },
+  "bugs": "https://github.com/nexalware/nexalware-mcp-node/issues",
+  "type": "module",
+  "bin": {
+    "nexalware-mcp": "./dist/bin/nexalware-mcp.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsx src/bin/nexalware-mcp.ts",
+    "build": "tsc && node -e \"require('fs').chmodSync('dist/bin/nexalware-mcp.js', 0o755)\"",
+    "start": "node dist/bin/nexalware-mcp.js",
+    "prepublishOnly": "npm run build",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "@nexalware/sdk": "^0.1.4",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.6",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
